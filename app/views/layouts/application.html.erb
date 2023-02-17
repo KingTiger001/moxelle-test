@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mine</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <form class="container-fluid justify-content-start">
+        <a href="/boards?all=true" class="btn btn btn-light me-2" type="button">Home</a>
+        <a href="/boards" class="btn btn btn-light me-2" type="button">List</a>
+        <a href="/boards/new" class="btn btn btn-light" type="button">Create</a>
+      </form>
+    </nav>
+    <%= yield %>
+  </body>
+</html>

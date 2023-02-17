@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Boards</h1>
+  <table class="table striped-table text-center">
+    <thead class="bg-primary text-white">
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Mine Number</th>
+        <th>Created By</th>
+        <th>Created At</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @boards.each_with_index do |board, index| %>
+        <tr>
+        <td><%= index +1 %></td>
+        <td><a href="/boards/<%= board.id %>"><%= board.name %></a></td>
+        <td><%= board.mine_num %></td>
+        <td><%= board.user_email %></td>
+        <td><%= board.created_at.strftime("%m/%d/%Y") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% if (!@all) %>
+    <div class="float-end">
+      <%= will_paginate @boards, :container => false %>
+    </div>
+    <div class="pag">
+      <div class="page_info">
+        <%= page_entries_info @boards, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+      </div>
+    </div>
+  <% else %>
+    <a class="btn btn-primary" href="/boards">view all generated boards</a>
+  <% end %>
+</div>

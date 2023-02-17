@@ -1,0 +1,60 @@
+<%= form_with(model: board, data: { form_validation_target: "form" }) do |form| %>
+  <div class="row mb-2">
+    <div class="col-2">
+      <%= form.label(:name, class: "form-label")%>
+    </div>
+    <div class="col-4">
+      <%= form.text_field :name, class: "form-control", data: { action: "form-validation#handleChange" } %>
+      <% @board.errors.full_messages_for(:name).each do |message| %>
+        <div class="text-danger"><%= message %></div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-2">
+      <%= form.label(:user_email, class: "form-label")%>
+    </div>
+    <div class="col-4">
+      <%= form.text_field :user_email, class: "form-control", data: { action: "form-validation#handleChange" } %>
+      <% @board.errors.full_messages_for(:user_email).each do |message| %>
+        <div class="text-danger"><%= message %></div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-2">
+      <%= form.label(:width, class: "form-label")%>
+    </div>
+    <div class="col-4">
+      <%= form.number_field :width, class: "form-control", data: { action: "form-validation#handleChange" } %>
+      <% @board.errors.full_messages_for(:width).each do |message| %>
+        <div class="text-danger"><%= message %></div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-2">
+      <%= form.label(:height, class: "form-label")%>
+    </div>
+    <div class="col-4">
+      <%= form.number_field :height, class: "form-control", data: { action: "form-validation#handleChange" } %>
+      <% @board.errors.full_messages_for(:height).each do |message| %>
+        <div class="text-danger"><%= message %></div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-2">
+      <%= form.label(:mine_num, class: "form-label")%>
+    </div>
+    <div class="col-4">
+      <%= form.number_field :mine_num, class: "form-control", data: { action: "form-validation#handleChange" } %>
+      <% @board.errors.full_messages_for(:mine_num).each do |message| %>
+        <div class="text-danger"><%= message %></div>
+      <% end %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= form.submit 'Generate Board', :class=>"btn btn-success" %>
+  </div>
+<% end %>

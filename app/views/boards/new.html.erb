@@ -1,0 +1,10 @@
+<div class="container">
+  <h2 class="mb-5">New Board</h2>
+  <div data-controller="form-validation" data-form-validation-target="output" data-form-validation-url-value="<%= form_validations_boards_path %>">
+    <%= render 'form', board: @board %>
+  </div>
+  <div class="col-6">
+    <%= link_to 'Back', boards_path, :class=>'btn btn-primary float-end' %>
+  </div>
+
+</div>

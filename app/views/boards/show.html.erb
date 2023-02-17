@@ -1,0 +1,16 @@
+<div class="container">
+  <h3><%= @board.name %> Board Created By <%= @board.user_email %></h3>
+  <div class="center-block">
+  <% for i in 0..(@board.height - 1) %>
+    <div>
+      <% for j in 0..(@board.width - 1) %>
+        <%if (@mins["#{i}-#{j}"]) %>
+          <div class="clone miner"></div>
+        <% else %>
+          <div class="clone empty"></div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+  
